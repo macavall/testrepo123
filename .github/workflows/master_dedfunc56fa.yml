@@ -43,21 +43,19 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_23C57780C8C9478684AFEC495576E187 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_6CE79FBE507F46D793BBEE88BCD7EC95 }}
 
-      - name: 'Run Azure Functions Action'
-        uses: Azure/functions-action@v1
-        id: fa
-        with:
-          app-name: 'dedfunc56fa'
-          slot-name: 'Production'
-          package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+      # - name: 'Run Azure Functions Action'
+        # uses: Azure/functions-action@v1
+        # id: fa
+        # with:
+          # app-name: 'dedfunc56fa'
+          # slot-name: 'Production'
+          # package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
 
       - name: Set app settings via Azure CLI
         run: |
-          az functionapp config appsettings set \
-          --name dedfunc56fa \
-          --resource-group dedfunc56rg \
-          --settings test=testvalue test2=testvalue2
+          az functionapp config appsettings set --name dedfunc56fa --resource-group dedfunc56rg --settings test=testvalue test2=testvalue2
 
           
+
 
 
