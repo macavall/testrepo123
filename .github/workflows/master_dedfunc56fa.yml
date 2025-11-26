@@ -50,5 +50,9 @@ jobs:
           app-name: 'dedfunc56fa'
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
+          app-settings: |
+            test=testvalue
+            test2=testvalue2
 
           
+
