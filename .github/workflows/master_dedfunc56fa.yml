@@ -50,9 +50,14 @@ jobs:
           app-name: 'dedfunc56fa'
           slot-name: 'Production'
           package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-          app-settings: |
-            test=testvalue
-            test2=testvalue2
+
+      - name: Set app settings via Azure CLI
+        run: |
+          az functionapp config appsettings set \
+          --name dedfunc56fa \
+          --resource-group dedfunc56rg \
+          --settings test=testvalue test2=testvalue2
 
           
+
 
